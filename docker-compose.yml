@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  db:
+    image: postgres
+    container_name: my_postgres_container
+    restart: always
+    ports:
+      - "$POSTGRES_PORT:5432"
+    env_file:
+      - .env
+    volumes:
+      - postgres:/var/lib/postgresql/data
+
+volumes:
+  postgres:
